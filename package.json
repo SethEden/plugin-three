@@ -1,0 +1,29 @@
+{
+  "name": "plugin-three",
+  "version": "0.0.1",
+  "description": "A third prototype plugin implementation for testing advanced plugin features of the haystacks platform.",
+  "main": "./src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SethEden/pluginThree.git"
+  },
+  "keywords": [
+    "NodeJS",
+    "Plugin",
+    "Haystacks"
+  ],
+  "author": "Seth Hollingsead",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SethEden/pluginThree/issues"
+  },
+  "homepage": "https://github.com/SethEden/pluginThree#readme",
+  "dependencies": {
+    "@haystacks/async": "0.1.8",
+    "@haystacks/constants": "0.1.7",
+    "dotenv": "^16.0.0"
+  }
+}
