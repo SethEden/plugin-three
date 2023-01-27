@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><PluginWorkflows>
+  <debug>
+    <commandsBlob>
+      <commands>
+        <pluginThreeCommands>
+          <Workflow Name="pluginThreeCommandsEnable" Value="changeConfigSetting debugSetting.plugins.plugin-three.commandsBlob.commands.pluginThreeCommands true"/>
+          <Workflow Name="pluginThreeCommandsDisable" Value="changeConfigSetting debugSetting.plugins.plugin-three.commandsBlob.commands.pluginThreeCommands false"/>
+          <Workflow Name="pluginThreeCommand01Enable" Value="changeConfigSetting debugSetting.plugins.plugin-three.commandsBlob.commands.pluginThreeCommands.pluginThreeCommand01 true"/>
+          <Workflow Name="pluginThreeCommand01Disable" Value="changeConfigSetting debugSetting.plugins.plugin-three.commandsBlob.commands.pluginThreeCommands.pluginThreeCommand01 false"/>
+          <Workflow Name="pluginThreeCommand02Enable" Value="changeConfigSetting debugSetting.plugins.plugin-three.commandsBlob.commands.pluginThreeCommands.pluginThreeCommand02 true"/>
+          <Workflow Name="pluginThreeCommand02Disable" Value="changeConfigSetting debugSetting.plugins.plugin-three.commandsBlob.commands.pluginThreeCommands.pluginThreeCommand02 false"/>
+        </pluginThreeCommands>
+      </commands>
+    </commandsBlob>
+  </debug>
+</PluginWorkflows>

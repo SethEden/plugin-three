@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><PluginWorkflows>
+  <debug>
+    <businessRules>
+      <rules>
+        <pluginThreeRules>
+          <Workflow Name="pluginThreeRulesEnable" Value="changeConfigSetting debugSetting.plugins.plugin-three.businessRules.rules.pluginThreeRules true"/>
+          <Workflow Name="pluginThreeRulesDisable" Value="changeConfigSetting debugSetting.plugins.plugin-three.businessRules.rules.pluginThreeRules false"/>
+          <Workflow Name="pluginThreeRule01Enable" Value="changeConfigSetting debugSetting.plugins.plugin-three.businessRules.rules.pluginThreeRules.pluginThreeRule01 true"/>
+          <Workflow Name="pluginThreeRule01Disable" Value="changeConfigSetting debugSetting.plugins.plugin-three.businessRules.rules.pluginThreeRules.pluginThreeRule01 false"/>
+          <Workflow Name="pluginThreeRule02Enable" Value="changeConfigSetting debugSetting.plugins.plugin-three.businessRules.rules.pluginThreeRules.pluginThreeRule02 true"/>
+          <Workflow Name="pluginThreeRule02Disable" Value="changeConfigSetting debugSetting.plugins.plugin-three.businessRules.rules.pluginThreeRules.pluginThreeRule02 false"/>
+        </pluginThreeRules>
+      </rules>
+    </businessRules>
+  </debug>
+</PluginWorkflows>

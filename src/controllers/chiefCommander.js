@@ -25,3 +25,44 @@ const baseFileName = path.basename(import.meta.url, path.extname(import.meta.url
 // plugins.plugin-three.controllers.chiefCommander.
 const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + wrd.ccontrollers + bas.cDot + baseFileName + bas.cDot;
 
+/**
+ * @function initCommands
+ * @description Initializes all of the commands for the plugin,
+ * so they can be loaded by the Haystacks platform and sued by the application.
+ * @return {object} A JSON object that contains an array of function objects that map function name to function call for all of the commands.
+ * @author Seth Hollingsead
+ * @date 2023/01/27
+ */
+async function initCommands() {
+  // let functionName = initCommands.name;
+  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  let returnData = {};
+  returnData = await commandBroker.bootStrapCommands();
+  // console.log(`returnData is: ${JSON.stringify(returnData)}`);
+  // console.log(`END ${namespacePrefix}${functionName} function`);
+  return returnData;
+}
+
+/**
+ * @function setupCommandAliases
+ * @description Sets up all the plugin command aliases data.
+ * @param {string} pluginCommandAliasesPath Teh path of the command aliases files for the plugin layer.
+ * @return {object} A JSON object that contains all of the command aliases data loaded and parsed from the specified path.
+ * @author Seth Hollingsead
+ * @date 2023/01/27
+ */
+async function setupCommandAliases(pluginCommandAliasesPath) {
+  // let functionName = setupCommandAliases.name;
+  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  // console.log(`pluginCommandAliasesPath is: ${pluginCommandAliasesPath}`);
+  let returnData = {};
+  returnData = await chiefData.loadCommandAliasesData(pluginCommandAliasesPath);
+  // console.log(`returnData is: ${JSON.stringify(returnData)}`);
+  // console.log(`END ${namespacePrefix}${functionName} function`);
+  return returnData;
+}
+
+export default {
+  initCommands,
+  setupCommandAliases
+};
