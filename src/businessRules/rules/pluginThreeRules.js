@@ -12,7 +12,7 @@
  */
 
 // Internal imports
-import * as plg from '../../constants/plugin.cosntants.js';
+import * as plg from '../../constants/plugin.constants.js';
 // External imports
 import haystacks from '@haystacks/async';
 import hayConst from '@haystacks/constants';
@@ -58,7 +58,7 @@ async function pluginThreeRule01(inputData, inputMetaData) {
  * to verify that the business rule has been loaded when the plugin was loaded.
  * @param {string} inputData Not used for this business rule.
  * @param {string} inputMetaData Not used fro this business rule.
- * @return {string} Teh string "pluginThreeRules.pluginThreeRule02".
+ * @return {string} The string "pluginThreeRules.pluginThreeRule02".
  * @author Seth Hollingsead
  * @date 2023/01/26
  */

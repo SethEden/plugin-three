@@ -22,7 +22,7 @@ import path from 'path';
 
 const {bas, cfg, msg, sys, wrd} = hayConst;
 const baseFileName = path.basename(import.meta.url, path.extname(import.meta.url));
-// plugins.plugn-three.brokers.dataBroker.
+// plugins.plugin-three.brokers.dataBroker.
 const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + wrd.cbrokers + bas.cDot + baseFileName + bas.cDot;
 
 /**
@@ -41,10 +41,10 @@ async function initData() {
 }
 
 /**
- * @function loadConfigPath
+ * @function loadConfigData
  * @description Calls the Haystacks platform to load the configuration data, parse it and return it as a JSON object.
  * @param {string} configPath The path to the plugin configuration data that must be loaded.
- * @return {object} A JSON object that contains all of the configuratino data loaded and parsed from the specified path.
+ * @return {object} A JSON object that contains all of the configuration data loaded and parsed from the specified path.
  * @author Seth Hollingsead
  * @date 2023/01/26
  */
@@ -54,9 +54,9 @@ async function loadConfigData(configPath) {
   // console.log(`configPath is: ${configPath}`);
   let returnData = {};
   // NOTE: This is the first call back to Haystacks to load data,
-  // We will need to pass the Haystacks data back into this isntance of Haystacks efore we try to call it to get it to do any kind of work.
+  // We will need to pass the Haystacks data back into this instance of Haystacks before we try to call it to get it to do any kind of work.
   if (await haystacks.accouterFramework(D[wrd.cdata][cfg.chaystacksContextObject]) === true) {
-    // console.log('Done oading the Haystacks dependency data, now try and use Haystacks to load the config data, from the configPath.');
+    // console.log('Done loading the Haystacks dependency data, now try and use Haystacks to load the config data, from the configPath.');
     returnData = await haystacks.loadPluginResourceData(wrd.cconfiguration, configPath);
   } else {
     // FATAL ERROR: Unable to load the specified plugin config path, Haystacks framework data dependency failure:
@@ -90,7 +90,7 @@ async function loadCommandAliasesData(aliasesPath) {
 /**
  * @function loadWorkflowsData
  * @description Loads the plugin workflows data by calling the Haystacks platform to
- * oad and parse the workflows data from the specified path.
+ * load and parse the workflows data from the specified path.
  * @param {string} workflowsPath The fully qualified path to the workflows folder with all of the workflows data for the plugin.
  * @return {object} A JSON object that contains all of the workflows data loaded and parsed from the specified path.
  * @author Seth Hollingsead

@@ -30,7 +30,7 @@ import path from 'path';
 
 const {bas, cfg, msg, wrd} = hayConst;
 const baseFileName = path.basename(import.meta.url, path.extname(import.meta.url));
-// plugins.plugin-three.brokers.ruleBroker.
+// plugins.plugin-three.controllers.warden.
 const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + wrd.ccontrollers + bas.cDot + baseFileName + bas.cDot;
 
 /**
@@ -53,7 +53,7 @@ async function initPluginRules() {
 /**
  * @function initPluginCommands
  * @description This is a wrapper call for chiefCommander.initCommands.
- * @return {object} A JSON object that contains an array of function objects that map function name to function call for al of the commands.
+ * @return {object} A JSON object that contains an array of function objects that map function name to function call for all of the commands.
  * @author Seth Hollingsead
  * @date 2023/01/27
  */
@@ -70,8 +70,8 @@ async function initPluginCommands() {
 /**
  * @function initPluginSchema
  * @description Setup all of the plugin data and configuration settings.
- * @param {object} configData All of the configuration data nad paths that should be parsed as part of the setup process.
- * @return {object} All of the plugin data that shuld be returned to the rest of the Haystacks platform.
+ * @param {object} configData All of the configuration data and paths that should be parsed as part of the setup process.
+ * @return {object} All of the plugin data that should be returned to the rest of the Haystacks platform.
  * @author Seth Hollingsead
  * @date 2023/01/27
  */
@@ -95,7 +95,7 @@ async function initPluginSchema(configData) {
   D[wrd.cdata][wrd.cconfiguration] = pluginConfigData;
 
   // Load the command aliases data for the plugin.
-  let plugnCommandAliasesData = await chiefCommander.setupCommandAliases(pluginCommandAliasesPath);
+  let pluginCommandAliasesData = await chiefCommander.setupCommandAliases(pluginCommandAliasesPath);
   // console.log('pluginCommandAliasesData is: ' + JSON.stringify(pluginCommandAliasesData));
   D[wrd.cdata][wrd.cCommands + wrd.cAliases] = {};
   D[wrd.cdata][wrd.cCommands + wrd.cAliases] = pluginCommandAliasesData;

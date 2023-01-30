@@ -21,7 +21,7 @@ import path from 'path';
 
 const {bas, msg, wrd} = hayConst;
 const baseFileName = path.basename(import.meta.url, path.extname(import.meta.url));
-// plugins.plugin-three.brokers.ruleBroker
+// plugins.plugin-three.brokers.ruleBroker.
 const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + wrd.cbrokers + bas.cDot + baseFileName + bas.cDot;
 
 /**

@@ -28,7 +28,7 @@ const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + w
 /**
  * @function initCommands
  * @description Initializes all of the commands for the plugin,
- * so they can be loaded by the Haystacks platform and sued by the application.
+ * so they can be loaded by the Haystacks platform and used by the application.
  * @return {object} A JSON object that contains an array of function objects that map function name to function call for all of the commands.
  * @author Seth Hollingsead
  * @date 2023/01/27
@@ -46,7 +46,7 @@ async function initCommands() {
 /**
  * @function setupCommandAliases
  * @description Sets up all the plugin command aliases data.
- * @param {string} pluginCommandAliasesPath Teh path of the command aliases files for the plugin layer.
+ * @param {string} pluginCommandAliasesPath The path of the command aliases files for the plugin layer.
  * @return {object} A JSON object that contains all of the command aliases data loaded and parsed from the specified path.
  * @author Seth Hollingsead
  * @date 2023/01/27

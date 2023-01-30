@@ -63,7 +63,7 @@ async function loadConfigurationData(configPath) {
  * @description Loads the plugin command aliases data by calling the Haystacks to
  * load and parse the data from the specified path.
  * @param {string} aliasesPath  The fully qualified path to the command aliases folder with all of the command aliases data for the plugin.
- * @return {object} A JSON object that contains all of the command aliases data oaded and parsed from the specified path.
+ * @return {object} A JSON object that contains all of the command aliases data loaded and parsed from the specified path.
  * @author Seth Hollingsead
  * @date 2023/01/27
  */

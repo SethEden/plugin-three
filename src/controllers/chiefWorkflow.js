@@ -21,13 +21,13 @@ import path from 'path';
 const {bas, msg, wrd} = hayConst;
 const baseFileName = path.basename(import.meta.url, path.extname(import.meta.url));
 // plugins.plugin-three.controllers.chiefWorkflow.
-const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + wrd.cconrollers + bas.cDot + baseFileName + bas.cDot;
+const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + wrd.ccontrollers + bas.cDot + baseFileName + bas.cDot;
 
 /**
  * @function setupWorkflows
  * @description Sets up all the plugin workflows data.
  * @param {string} pluginWorkflowsPath The path of the workflows files for the plugin layer.
- * @return {object} A JSON object that contains all of the3 workflows data loaded and parsed from the specified path.
+ * @return {object} A JSON object that contains all of the workflows data loaded and parsed from the specified path.
  * @author Seth Hollingsead
  * @date 2023/01/27
  */

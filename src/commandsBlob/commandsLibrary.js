@@ -53,7 +53,7 @@ const initPluginCommandLibrary = function() {
     // ***********************************************************************
     // END pluginThree category
     // ***********************************************************************
-  }
+  };
   // console.log(`returnData is: ${JSON.stringify(returnData)}`);
   // console.log(`END ${namespacePrefix}${functionName} function`);
   return returnData;
