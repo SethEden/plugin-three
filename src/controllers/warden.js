@@ -78,7 +78,7 @@ async function initPluginCommands() {
 async function initPluginSchema(configData) {
   // let functionName = initPluginSchema.name;
   // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
-  // console.log(`configData is: ${configData}`);
+  // console.log(`configData is: ${JSON.stringify(configData)}`);
   await chiefData.initializeData();
   D[wrd.cdata] = configData; // Persist all of the plugin data we have so far.
   let pluginConfigPath = configData[cfg.cpluginConfigReferencePath];
@@ -105,7 +105,7 @@ async function initPluginSchema(configData) {
   // console.log('pluginWorkflowsData is: ' + JSON.stringify(pluginWorkflowsData));
   D[wrd.cdata][wrd.cCommand + wrd.cWorkflows] = {};
   D[wrd.cdata][wrd.cCommand + wrd.cWorkflows] = pluginWorkflowsData;
-  console.log('contents of D are: ' + JSON.stringify(D));
+  // console.log('contents of D are: ' + JSON.stringify(D));
   // console.log(`END ${namespacePrefix}${functionName} function`);
 }
 

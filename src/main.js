@@ -93,7 +93,7 @@ async function initializePlugin(inputMetaData) {
   rootPath = url.fileURLToPath(path.dirname(import.meta.url));
   let rootPathArray = rootPath.split(bas.cBackSlash);
   rootPathArray.pop(); // remove any bin or src folder from the path.
-  rootPath = rootPathArray(join(bas.cBackSlash));
+  rootPath = rootPathArray.join(bas.cBackSlash);
   // console.log('rootPath is: ' + rootPath);
   let pluginConfig = {};
   if (NODE_ENV === wrd.cdevelopment) {

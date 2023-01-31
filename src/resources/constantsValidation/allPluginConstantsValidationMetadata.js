@@ -28,7 +28,7 @@ import * as plg_sys from '../../constants/plugin.system.constants.js';
 import * as plg_biz_cv from './plugin.business.constants.validation.js';
 import * as plg_cmd_cv from './plugin.command.constants.validation.js';
 import * as plg_cv from './plugin.constants.validation.js';
-import * as plg_msg_cv from './plugn.message.constants.validation.js';
+import * as plg_msg_cv from './plugin.message.constants.validation.js';
 import * as plg_sys_cv from './plugin.system.constants.validation.js';
 // External imports
 import hayConst from '@haystacks/constants';

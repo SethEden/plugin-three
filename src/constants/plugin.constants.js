@@ -14,7 +14,7 @@ const {bas, num, sys, wrd} = hayConst;
 
 // Plugin constants
 export const cpluginName = wrd.cplugin + bas.cDash + num.cthree; // plugin-three
-export const cPluginDevPath = bas.cFowardSlash + wrd.csrc + bas.cForwardSlash; // /src/
+export const cPluginDevPath = bas.cForwardSlash + wrd.csrc + bas.cForwardSlash; // /src/
 export const cPluginProdPath = bas.cForwardSlash + wrd.cbin + bas.cForwardSlash; // /bin/
 export const cResourcesCommonPath = wrd.cresources + bas.cForwardSlash; // resources/
 export const cCommandsCommonPath = wrd.ccommands + bas.cForwardSlash; // commands/

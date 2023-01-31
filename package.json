@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "A third prototype plugin implementation for testing advanced plugin features of the Haystacks platform.",
   "main": "./src/main.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
