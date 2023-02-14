@@ -5,7 +5,8 @@
  * It contains the entry point and all public functions for the plugin.
  * @requires module:plugin.constants
  * @requires module:warden
- * @requires module:allPluginConstantsValidationMetaData
+ * @requires module:allPluginConstantsValidationMetadata
+ * @requires module:loggers
  * @requires module:pluginData
  * @requires {@link https://www.npmjs.com/package/@haystacks/async|@haystacks/async}
  * @requires {@link https://www.npmjs.com/package/@haystacks/constants|@haystacks/constants}
@@ -21,6 +22,7 @@
 import * as plg from './constants/plugin.constants.js';
 import warden from './controllers/warden.js';
 import allPlgCV from './resources/constantsValidation/allPluginConstantsValidationMetadata.js';
+import loggers from './executrix/loggers.js';
 import D from './structures/pluginData.js';
 // External imports
 import haystacks from '@haystacks/async';
@@ -67,7 +69,7 @@ const {NODE_ENV} = process.env;
 
 // Solution #2 appears that it will be the ideal solution, now lets test it!!
 // Well turns out it is not possible to re-assign a module as an object once it has been imported.
-// The only remaining solution is #1.
+// Then the only remaining solution is #1.
 // FINALLY: YES!! Solution #1 is the way to solve this problem and got it working correctly.
 // HOWEVER, 1 problem still remains. The user must still clone the Haystacks/async repo locally, then link it to their application and to all their plugins as well.
 // I'll need to work to understand why this is.
@@ -87,17 +89,19 @@ const {NODE_ENV} = process.env;
  * @date 2023/01/26
  */
 async function initializePlugin(inputMetaData) {
-  // let functionName = initializePlugin.name;
-  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
-  // console.log(`inputMetaData is: ` + JSON.stringify(inputMetaData));
+  let functionName = initializePlugin.name;
+  await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
+  await loggers.consoleLog(namespacePrefix + functionName, msg.cinputMetaDataIs + JSON.stringify(inputMetaData));
   rootPath = url.fileURLToPath(path.dirname(import.meta.url));
   let rootPathArray = rootPath.split(bas.cBackSlash);
   rootPathArray.pop(); // remove any bin or src folder from the path.
   rootPath = rootPathArray.join(bas.cBackSlash);
-  // console.log('rootPath is: ' + rootPath);
+  await loggers.consoleLog(namespacePrefix + functionName, msg.crootPathIs + rootPath);
+  let logFilePathAndName = await loggers.getLogFileNameAndPath(inputMetaData);
   let pluginConfig = {};
   if (NODE_ENV === wrd.cdevelopment) {
     pluginConfig = {
+      [cfg.cLogFilePathAndName]: logFilePathAndName,
       haystacksContextObject: inputMetaData,
       PluginName: plg.cpluginName,
       pluginRootPath: rootPath,
@@ -115,6 +119,7 @@ async function initializePlugin(inputMetaData) {
     }
   } else if (NODE_ENV === wrd.cproduction) {
     pluginConfig = {
+      [cfg.cLogFilePathAndName]: logFilePathAndName,
       haystacksContextObject: inputMetaData,
       PluginName: plg.cpluginName,
       pluginRootPath: rootPath,
@@ -134,6 +139,7 @@ async function initializePlugin(inputMetaData) {
     // WARNING: No .env file found! Going to default to the DEVELOPMENT ENVIRONMENT!
     console.log(msg.cApplicationWarningMessage1a + msg.cApplicationWarningMessage1b);
     pluginConfig = {
+      [cfg.cLogFilePathAndName]: logFilePathAndName,
       haystacksContextObject: inputMetaData,
       PluginName: plg.cpluginName,
       pluginRootPath: rootPath,
@@ -153,9 +159,10 @@ async function initializePlugin(inputMetaData) {
   pluginConfig[sys.cpluginBusinessRules] = await warden.initPluginRules();
   pluginConfig[sys.cpluginCommands] = await warden.initPluginCommands();
   await warden.initPluginSchema(pluginConfig);
+  D[cfg.chaystacksContextObject] = {};
   let returnData = D; // Export all of the plugin data.
-  // console.log(`returnData is: ${JSON.stringify(returnData)}`);
-  // console.log(`END ${namespacePrefix}${functionName} function`);
+  await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
+  await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
   return returnData;
 }
 
