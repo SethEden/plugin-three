@@ -5,6 +5,7 @@
  * @requires module:pluginThreeRules
  * @requires module:plugin.business.constants
  * @requires module:plugin.constants
+ * @requires module:loggers
  * @requires module:pluginData
  * @requires {@link https://www.npmjs.com/package/@haystacks/constants|@haystacks/constants}
  * @requires {@link https://www.npmjs.com/package/path|path}
@@ -15,20 +16,33 @@
 
 // Internal imports
 import pluginThreeRules from './rules/pluginThreeRules.js';
-import * as plg_biz from '../constants/plugin.busienss.constants.js';
+import * as plg_biz from '../constants/plugin.business.constants.js';
 import * as plg from '../constants/plugin.constants.js';
+import loggers from '../executrix/loggers.js';
+import D from '../structures/pluginData.js';
 // External imports
 import hayConst from '@haystacks/constants';
 import path from 'path';
 
 const {bas, msg, sys, wrd} = hayConst;
 const baseFileName = path.basename(import.meta.url, path.extname(import.meta.url));
-// plugins.plugin-three.businessRules.rulesLibrary
+// plugins.plugin-three.businessRules.rulesLibrary.
 const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + sys.cbusinessRules + bas.cDot + baseFileName + bas.cDot;
 
-const initPluginRulesLibrary = function() {
-  let functionName = initPluginRulesLibrary.name;
-  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+/**
+ * @function initPluginRulesLibrary
+ * @description Initializes an object map of plugin business rules and plugin function calls and returns them.
+ * @return {object} A JSON object that contains an array of function objects that map function name to function call for all of the business rules.
+ * @author Seth Hollingsead
+ * @date 2023/01/26
+ * @NOTE Please be aware that the Commands and BusinessRules data fields in the
+ * D-data structure are going to display as empty when printing out the D-data structure even when using JSON.stringify().
+ * This is because the functions cannot really be serialized in any way. It actually kind of makes sense,
+ * but could be really confusing if you are struggling, trying to debug commands or business rules that do not appear to exist.
+ */
+async function initPluginRulesLibrary() {
+  // let functionName = initPluginRulesLibrary.name;
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
   let returnData = {};
   returnData[sys.cbusinessRules] = {};
   returnData[sys.cbusinessRules] = {
@@ -41,9 +55,9 @@ const initPluginRulesLibrary = function() {
     // ***********************************************************************
     // END pluginThree category
     // ***********************************************************************
-  }
-  // console.log(`returnData is: ${JSON.stringify(returnData)}`);
-  // console.log(`END ${namespacePrefix}${functionName} function`);
+  };
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
   return returnData;
 }
 

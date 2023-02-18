@@ -4,6 +4,7 @@
  * @description Contains all of the top-level functions to manage the workflows for the plugin.
  * @requires module:plugin.constants
  * @requires module:chiefData
+ * @requires module:loggers
  * @requires {@link https://www.npmjs.com/package/@haystacks/constants|@haystacks/constants}
  * @requires {@link https://www.npmjs.com/package/path|path}
  * @author Seth Hollingsead
@@ -14,6 +15,7 @@
 // Internal imports
 import * as plg from '../constants/plugin.constants.js';
 import chiefData from './chiefData.js';
+import loggers from '../executrix/loggers.js';
 // External imports
 import hayConst from '@haystacks/constants';
 import path from 'path';
@@ -21,24 +23,25 @@ import path from 'path';
 const {bas, msg, wrd} = hayConst;
 const baseFileName = path.basename(import.meta.url, path.extname(import.meta.url));
 // plugins.plugin-three.controllers.chiefWorkflow.
-const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + wrd.cconrollers + bas.cDot + baseFileName + bas.cDot;
+const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + wrd.ccontrollers + bas.cDot + baseFileName + bas.cDot;
 
 /**
  * @function setupWorkflows
  * @description Sets up all the plugin workflows data.
  * @param {string} pluginWorkflowsPath The path of the workflows files for the plugin layer.
- * @return {object} A JSON object that contains all of the3 workflows data loaded and parsed from the specified path.
+ * @return {object} A JSON object that contains all of the workflows data loaded and parsed from the specified path.
  * @author Seth Hollingsead
  * @date 2023/01/27
  */
 async function setupWorkflows(pluginWorkflowsPath) {
   // let functionName = setupWorkflows.name;
-  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
-  // console.log(`pluginWorkflowsPath is: ${pluginWorkflowsPath}`);
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
+  // pluginWorkflowsPath is:
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cpluginWorkflowsPathIs + pluginWorkflowsPath);
   let returnData = {};
   returnData = await chiefData.loadWorkflowsData(pluginWorkflowsPath);
-  // console.log(`returnData is: ${JSON.stringify(returnData)}`);
-  // console.log(`END ${namespacePrefix}${functionName} function`);
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
   return returnData;
 }
 

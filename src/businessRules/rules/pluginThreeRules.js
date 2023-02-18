@@ -12,7 +12,7 @@
  */
 
 // Internal imports
-import * as plg from '../../constants/plugin.cosntants.js';
+import * as plg from '../../constants/plugin.constants.js';
 // External imports
 import haystacks from '@haystacks/async';
 import hayConst from '@haystacks/constants';
@@ -36,19 +36,14 @@ const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + s
  */
 async function pluginThreeRule01(inputData, inputMetaData) {
   let functionName = pluginThreeRule01.name;
-  await haystacks.consoleLog(namespacePrefix, functionName, msg.cBEGIN_Function);
-  await haystacks.consoleLog(namespacePrefix, functionName, msg.cinputDataIs + inputData);
-  await haystacks.consoleLog(namespacePrefix, functionName, msg.cinputMetaDataIs + inputMetaData);
-  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
-  // console.log(`inputData is: ${inputData}`);
-  // console.log(`inputMetaData is: ${inputMetaData}`);
+  haystacks.consoleLog(namespacePrefix, functionName, msg.cBEGIN_Function);
+  haystacks.consoleLog(namespacePrefix, functionName, msg.cinputDataIs + inputData);
+  haystacks.consoleLog(namespacePrefix, functionName, msg.cinputMetaDataIs + inputMetaData);
   let returnData = '';
   returnData = wrd.cplugin + num.cThree + wrd.cRule + num.c01;
   console.log(namespacePrefix + returnData);
-  await haystacks.consoleLog(namespacePrefix, functionName, msg.creturnDataIs + returnData);
-  await haystacks.consoleLog(namespacePrefix, functionName, msg.cEND_Function);
-  // console.log(`returnData is: ${returnData}`);
-  // console.log(`END ${namespacePrefix}${functionName} function`);
+  haystacks.consoleLog(namespacePrefix, functionName, msg.creturnDataIs + returnData);
+  haystacks.consoleLog(namespacePrefix, functionName, msg.cEND_Function);
   return returnData;
 }
 
@@ -58,25 +53,20 @@ async function pluginThreeRule01(inputData, inputMetaData) {
  * to verify that the business rule has been loaded when the plugin was loaded.
  * @param {string} inputData Not used for this business rule.
  * @param {string} inputMetaData Not used fro this business rule.
- * @return {string} Teh string "pluginThreeRules.pluginThreeRule02".
+ * @return {string} The string "pluginThreeRules.pluginThreeRule02".
  * @author Seth Hollingsead
  * @date 2023/01/26
  */
 async function pluginThreeRule02(inputData, inputMetaData) {
   let functionName = pluginThreeRule02.name;
-  await haystacks.consoleLog(namespacePrefix, functionName, msg.cBEGIN_Function);
-  await haystacks.consoleLog(namespacePrefix, functionName, msg.cinputDataIs + inputData);
-  await haystacks.consoleLog(namespacePrefix, functionName, msg.cinputMetaDataIs + inputMetaData);
-  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
-  // console.log(`inputData is: ${inputData}`);
-  // console.log(`inputMetaData is: ${inputMetaData}`);
+  haystacks.consoleLog(namespacePrefix, functionName, msg.cBEGIN_Function);
+  haystacks.consoleLog(namespacePrefix, functionName, msg.cinputDataIs + inputData);
+  haystacks.consoleLog(namespacePrefix, functionName, msg.cinputMetaDataIs + inputMetaData);
   let returnData = '';
   returnData = wrd.cplugin + num.cThree + wrd.cRule + num.c02;
   console.log(namespacePrefix + returnData);
-  await haystacks.consoleLog(namespacePrefix, functionName, msg.creturnDataIs + returnData);
-  await haystacks.consoleLog(namespacePrefix, functionName, msg.cEND_Function);
-  // console.log(`returnData is: ${returnData}`);
-  // console.log(`END ${namespacePrefix}${functionName} function`);
+  haystacks.consoleLog(namespacePrefix, functionName, msg.creturnDataIs + returnData);
+  haystacks.consoleLog(namespacePrefix, functionName, msg.cEND_Function);
   return returnData;
 }
 
